@@ -1,11 +1,16 @@
 open Gillian
 open Instantiation
+
+module Lifter (Verification : Gillian.Abstraction.Verifier.S) =
+  Gillian.Debugger.Lifter.GilLifter.Make (Verification) (Symbolic.Dummy_memory)
+    (ParserAndCompiler.Dummy)
+
 module CLI =
-  Gillian.CommandLine.Make (Cmemory) (Symbolic.Dummy_memory) (General.External.Dummy)
+  Gillian.CommandLine.Make (General.Init_data.Dummy) (Cmemory) (Symbolic.Dummy_memory) (General.External.Dummy)
     (ParserAndCompiler.Dummy)
     (struct
       let runners = []
     end)
-    (Debugger.Gil_to_tl_lifter.Default (Gillian.Symbolic.Dummy_memory) (ParserAndCompiler.Dummy))
+    (Lifter)
 
 let () = CLI.main ()

@@ -9,6 +9,8 @@ type err_t = unit [@@deriving yojson]
 
 type t = unit [@@deriving yojson]
 
+type init_data = unit
+
 let init () = ()
 
 let copy () = ()
