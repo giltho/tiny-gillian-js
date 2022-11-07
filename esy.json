@@ -1,5 +1,5 @@
 {
-  "name": "gillian-instantiation-template",
+  "name": "wisl",
   "version": "0.0.0",
   "private": true,
   "description": "Template to use if you want to instantiate Gillian",
@@ -10,12 +10,12 @@
   "homepage": "GillianPlatform.github.io",
   "license": "BSD-3-Clause",
   "esy": {
-    "build": "dune build -p tinygjs @install",
+    "build": "dune build -p wisl @install",
     "buildsInSource": "_build",
     "exportedEnv": {
-      "TINYGJS_RUNTIME_PATH": {
+      "WISL_RUNTIME_PATH": {
         "scope": "global",
-        "val": "#{self.share}/tinygjs"
+        "val": "#{self.share}/wisl"
       }
     }
   },

@@ -1,5 +1,5 @@
 open Gillian
-open Tinygjs
+open Wisl
 
 module SMemory = Gillian.Monadic.MonadicSMemory.Lift(Smemory)
 

@@ -3,7 +3,7 @@ pred list(+x, alpha : List) :
   (x == null) * (alpha == {{  }}),
   
   (x == {{ #l, #o }}) * types(#l: Obj, #o: Int) *
-  <cell>(#l, #o; #v) * <cell>(#l, #o; #t) *
+  <cell>(#l, #o; #v) * <cell>(#l, #o i+ 1i; #t) *
   list(#t, #beta) * (alpha == l+ ({{ #v }}, #beta));
 
 spec llen(x)
@@ -11,11 +11,11 @@ spec llen(x)
   [[  list(#x, #alpha) * (ret == (l-len #alpha))  ]]
   normal
 proc llen(x) {
-          goto [(x = null)] then0 else0;
+          goto [x = null] then0 else0;
   then0:  n := 0i;
           goto endif0;
   else0:  t := [load](l-nth(x, 0i), l-nth(x, 1i) i+ 1i);
-          t := l-nth(t, 0);
+          t := l-nth(t, 0i);
           n := "llen"(t);
           n := n i+ 1i;
   endif0: skip;

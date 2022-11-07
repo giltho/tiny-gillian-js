@@ -1,4 +1,4 @@
 (executable
- (public_name tinygjs)
+ (public_name wisl)
  (name main)
- (libraries tinygjs gillian))
+ (libraries wisl gillian))
