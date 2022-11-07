@@ -1,8 +1,10 @@
 pred list(+x, alpha : List) :
+
   (x == null) * (alpha == {{  }}),
-  <prop>(x, "value"; #v) * <cell>(x, "prop"; #t) *
-  types(x : Obj, #t: Obj) * list(#z, #beta) *
-  (alpha == l+ ({{ #v }}, #beta));
+  
+  (x == {{ #l, #o }}) * types(#l: Obj, #o: Int) *
+  <cell>(#l, #o; #v) * <cell>(#l, #o; #t) *
+  list(#t, #beta) * (alpha == l+ ({{ #v }}, #beta));
 
 spec llen(x)
   [[  (x == #x) * list(#x, #alpha)  ]]
@@ -12,7 +14,7 @@ proc llen(x) {
           goto [(x = null)] then0 else0;
   then0:  n := 0i;
           goto endif0;
-  else0:  t := [load](x, "tail");
+  else0:  t := [load](l-nth(x, 0i), l-nth(x, 1i) i+ 1i);
           t := l-nth(t, 0);
           n := "llen"(t);
           n := n i+ 1i;

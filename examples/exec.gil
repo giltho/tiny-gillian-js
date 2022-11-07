@@ -2,8 +2,8 @@ proc llen(x) {
           goto [(x = null)] then0 else0;
   then0:  n := 0i;
           goto endif0;
-  else0:  t := [load](x, "tail");
-          t := l-nth(t, 0);
+  else0:  t := [load](l-nth(x, 0i), l-nth(x, 1i) i+ 1i);
+          t := l-nth(t, 0i);
           n := "llen"(t);
           n := n i+ 1i;
   endif0: skip;
@@ -13,10 +13,9 @@ proc llen(x) {
 
 
 proc prepend(x, v) {
-  new_node_r := [alloc]();
-  new_node := l-nth(new_node_r, 0i);
-  u := [store](new_node, "value", v);
-  u := [store](new_node, "tail", x);
+  new_node := [alloc](2i);
+  u := [store](l-nth(new_node, 0i), l-nth(new_node, 1i), v);
+  u := [store](l-nth(new_node, 0i), l-nth(new_node, 1i) i+ 1i, x);
   ret := new_node;
   return
 };

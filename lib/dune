@@ -1,4 +1,4 @@
 (library
  (name tinygjs)
- (libraries gillian fmt)
- (preprocess (pps ppx_deriving_yojson ppx_deriving.std)))
+ (libraries gillian fmt gillian.ppx_sat.runtime)
+ (preprocess (pps ppx_deriving_yojson ppx_deriving.std gillian.ppx_sat)))

@@ -8,6 +8,9 @@
 *.cmxs
 *.cmxa
 
+.gillian
+file.log
+
 # ocamlbuild working directory
 _build/
 

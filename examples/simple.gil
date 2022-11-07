@@ -1,13 +1,16 @@
 proc main() {
-  xr := [alloc]();
-  x := l-nth(xr, 0i);
+  x := [alloc](2i);
   
-  u := [store](x, "p", null);
+  z := fresh_svar();
   
-  yr := [load](x, "p");
+  assume ((0i i<=# z) /\ (z i<# 2i));
+  
+  u := [store](l-nth(x, 0i), z, z);
+  
+  yr := [load](l-nth(x, 0i), z);
   y := l-nth(yr, 0i);
   
-  assert (y == null);
+  assert (y == z);
   
   ret := null;
   return

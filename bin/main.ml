@@ -1,13 +1,15 @@
 open Gillian
 open Tinygjs
 
+module SMemory = Gillian.Monadic.MonadicSMemory.Lift(Smemory)
+
 module Lifter (Verification : Gillian.Abstraction.Verifier.S) =
-  Gillian.Debugger.Lifter.GilLifter.Make (Verification) (Symbolic.Dummy_memory)
+  Gillian.Debugger.Lifter.GilLifter.Make (Verification) (SMemory)
     (ParserAndCompiler.Dummy)
 
 module CLI =
   Gillian.CommandLine.Make (General.Init_data.Dummy) (Cmemory)
-    (Symbolic.Dummy_memory)
+    (SMemory)
     (General.External.Dummy)
     (ParserAndCompiler.Dummy)
     (struct
