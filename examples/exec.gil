@@ -1,0 +1,37 @@
+proc llen(x) {
+          goto [(x = null)] then0 else0;
+  then0:  n := 0i;
+          goto endif0;
+  else0:  t := [load](x, "tail");
+          t := l-nth(t, 0);
+          n := "llen"(t);
+          n := n i+ 1i;
+  endif0: skip;
+          ret := n;
+          return
+};
+
+
+proc prepend(x, v) {
+  new_node_r := [alloc]();
+  new_node := l-nth(new_node_r, 0i);
+  u := [store](new_node, "value", v);
+  u := [store](new_node, "tail", x);
+  ret := new_node;
+  return
+};
+
+proc main() {
+  
+  l := null;
+  l := "prepend"(l, 3i);
+  l := "prepend"(l, 2i);
+  l := "prepend"(l, 1i);
+  l := "prepend"(l, 0i);
+  
+  len := "llen"(l);
+  
+  assert (len ==  4i);
+  ret := null;
+  return
+};

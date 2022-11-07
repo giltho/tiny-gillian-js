@@ -10,12 +10,12 @@
   "homepage": "GillianPlatform.github.io",
   "license": "BSD-3-Clause",
   "esy": {
-    "build": "dune build -p instantiation @install",
+    "build": "dune build -p tinygjs @install",
     "buildsInSource": "_build",
     "exportedEnv": {
-      "INSTANTIATION_RUNTIME_PATH": {
+      "TINYGJS_RUNTIME_PATH": {
         "scope": "global",
-        "val": "#{self.share}/instantiation"
+        "val": "#{self.share}/tinygjs"
       }
     }
   },

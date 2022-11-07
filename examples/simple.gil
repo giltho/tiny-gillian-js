@@ -1,0 +1,14 @@
+proc main() {
+  xr := [alloc]();
+  x := l-nth(xr, 0i);
+  
+  u := [store](x, "p", null);
+  
+  yr := [load](x, "p");
+  y := l-nth(yr, 0i);
+  
+  assert (y == null);
+  
+  ret := null;
+  return
+};

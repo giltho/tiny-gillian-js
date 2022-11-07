@@ -1,9 +1,8 @@
-# gillian-instantiation-template
-Template for an instantiation of Gillian
+# tiny-gillian-js
 
 Start by implementing cmemory.ml, and then the ParserAndCompiler interface.
 
 Run using
 ```
-esy x instantiation --help
+esy x tinygjs --help
 ```

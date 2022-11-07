@@ -1,0 +1,22 @@
+pred list(+x, alpha : List) :
+  (x == null) * (alpha == {{  }}),
+  <prop>(x, "value"; #v) * <cell>(x, "prop"; #t) *
+  types(x : Obj, #t: Obj) * list(#z, #beta) *
+  (alpha == l+ ({{ #v }}, #beta));
+
+spec llen(x)
+  [[  (x == #x) * list(#x, #alpha)  ]]
+  [[  list(#x, #alpha) * (ret == (l-len #alpha))  ]]
+  normal
+proc llen(x) {
+          goto [(x = null)] then0 else0;
+  then0:  n := 0i;
+          goto endif0;
+  else0:  t := [load](x, "tail");
+          t := l-nth(t, 0);
+          n := "llen"(t);
+          n := n i+ 1i;
+  endif0: skip;
+          ret := n;
+          return
+};
